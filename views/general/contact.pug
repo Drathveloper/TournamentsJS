@@ -1,0 +1,20 @@
+extends ../layouts/layout
+
+block content
+    .row
+        .col-md-10.mx-auto.text-center
+            h2= title
+    .row
+        .col-md-6.col-sm-12
+            h3 TournamentJS
+            p Estamos creciendo y faltan funcionalidades. Puedes sugerir funcionalidades enviando un correo electrónico
+            p Si encuentras un bug, siéntete libre de contactar también.
+            a(href='mailto:alberto.hdzhdz@gmail.com')
+                i#mail.fa.fa-envelope-o
+
+        .col-md-6.col-sm-12
+            #map.img-fluid
+
+    script(src='/javascripts/mapscript.js')
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAab2LA9GOv59qvF_324Jc6NYY9nD7P3d0&callback=initMap")
+

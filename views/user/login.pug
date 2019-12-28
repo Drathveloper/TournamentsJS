@@ -1,0 +1,55 @@
+extends ../layouts/layout
+
+block content
+    .row
+        .col-md-10.col-sm-12.col-lg-8.mx-auto
+            h1.text-center= title
+            if message
+                .alert.alert-danger
+                    p= message
+            form(method='POST' action='')
+                div.form-group
+                    label(for='username') Usuario:
+                    input#username.form-control(type='text', name='username')
+                div.form-group
+                    label(for='password') Contraseña:
+                    input#password.form-control(type='password', name='password', value='true')
+                div.form-check
+                    input#remember-me.form-check-input(type='checkbox', name='remember')
+                    label.form-check-label(for='remember-me') Recordarme?
+                button#thesubmit.btn.btn-primary.float-right(type='submit') Iniciar sesión
+
+    .row.mt-5
+        .col-md-10.col-sm12.col-lg-8.mx-auto#rapid
+            h2 Rapid-Session
+            #rapid-form
+                form
+                    .form-group
+                        label(for='rapid-form-user') Usuario
+                        input#rapid-form-user.form-control(type='text')
+                    .form-group
+                        label(for='rapid-form-password') Contraseña
+                        input#rapid-form-password.form-control(type='password')
+                .row
+                    .col-md-6.col-sm-12
+                        button.btn.btn-primary.mb-3.w-100#rapid-form-submit Almacenar usuario
+                    .col-md-6.col-sm-12
+                        button.btn.btn-primary.mb-3.w-100#rapid-form-hide Ocultar
+            #rapid-select
+                form
+                    .form-group
+                        label(for='rapid-session') Cuenta
+                        select#rapid-session.form-control
+                .form-row
+                    .col-lg-4.col-md-12
+                        button.btn.btn-primary.w-100.mb-3#rapid-select-use Utilizar cuenta
+                    .col-lg-4.col-md-12
+                        button.btn.btn-primary.w-100.mb-3#rapid-select-remove Eliminar cuenta
+                    .col-lg-4.col-md-12
+                        button.btn.btn-primary.w-100.mb-3#rapid-select-hide Ocultar
+            .row#rapid-controls.mb-3.mt-3
+                .col-md-6.col-sm-12
+                    button.btn.btn-primary.mb-3.w-100#rapid-form-show Añadir usuario
+                .col-md-6.col-sm-12
+                    button.btn.btn-primary.mb-3.w-100#rapid-select-show Utilizar Rapid-Login
+    script(src="/javascripts/rapid_session.js")

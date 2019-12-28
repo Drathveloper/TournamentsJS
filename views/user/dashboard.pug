@@ -1,0 +1,36 @@
+extends ../layouts/layout
+
+block content
+    .row
+        .col-lg-12.text-center
+            h2 Panel de usuario
+            if role === 1
+                h3 Usuario
+            else if role === 2
+                h3 Organizador
+            else if role === 7
+                h3 Administrador
+            .row
+                    if role === 7
+                        .col-md-3.mx-auto
+                            a(href='/users/admin').btn.btn-lg.transparent-btn
+                                div
+                                    i.fa.fa-tachometer
+                                span Panel de administración
+                    if role === 2
+                        .col-md-3.mx-auto
+                            a(href='/tournaments/add').btn.btn-lg.transparent-btn
+                                div
+                                    i.fa.fa-plus-circle
+                                span Añadir torneo
+                    if role === 1 || role === 2
+                        .col-md-3.mx-auto
+                            a(href='/users/mytournaments').btn.btn-lg.transparent-btn
+                                div
+                                    i.fa.fa-user-circle
+                                span Mis torneos
+                    .col-md-3.mx-auto
+                        a(href='/tournaments/').btn.btn-lg.transparent-btn
+                            div
+                                i.fa.fa-trophy
+                            span Todos los torneos

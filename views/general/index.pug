@@ -1,0 +1,21 @@
+extends ../layouts/layout
+
+block content
+  .row.mb-3
+    .col-lg-10.mx-auto.text-center
+      h2 Inicio
+  .row
+    .col-md-6.back-logo
+      h4 Bienvenido a TournamentJS
+      p Proyecto final desarrollado para la asignatura "Desarrollo Web en Entorno Cliente (DWEC)", aunque tiene más servidor que cliente :)
+      p Tecnologías usadas
+      ul
+        li Tecnología de servidor: NodeJS v9
+        li Framework de servidor: Express con ODM (Mongoose)
+        li Motor de plantillas: Pug / Jade
+        li Lado cliente: Javascript puro con librerías
+        li Librerías: JQuery 3.3.1, JQuery-bracket, MomentJS
+        li Framework de diseño: Bootstrap 4 + FontAwesome 4.7 (iconos)
+        li Base de datos: MongoDB 3.6.2 (NOSQL)
+    .col-md-6
+      img.img-fluid(src='/images/background.jpg')

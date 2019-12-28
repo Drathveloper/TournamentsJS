@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm", crossorigin="anonymous")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    script(src="http://code.jquery.com/jquery-3.3.1.min.js")
+    link(rel="stylesheet", href="/stylesheets/jquery.bracket.min.css")
+  body
+    header
+      h1= title
+      nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
+        a.navbar-brand(href='/') TorneosJS
+        button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarCollapse", aria-controls="navbarCollapse", aria-expanded="false", aria-label="Toggle navigation")
+          span.navbar-toggler-icon
+        div#navbarCollapse.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item
+              a.nav-link(href='/index') Inicio
+            li.nav-item
+              a.nav-link(href='/tournaments/') Torneos
+            li.nav-item
+              a.nav-link(href='/contact') Contacto
+          ul.navbar-nav.navbar-right
+            if !username
+                li.nav-item
+                  a.nav-link(href='/users/login') Iniciar sesión
+                li.nav-item
+                  a.nav-link(href='/users/register') Registrarse
+            else
+                li.nav-item
+                    a.nav-link(href='/users/dashboard')
+                      i.fa.fa-user.text-left.mr-1
+                      span= username
+                li.nav-item
+                  a.nav-link(href='/users/logout') Cerrar sesión
+    .container
+      block content
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js")
+    script(src="/javascripts/main.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", crossorigin="anonymous")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl", crossorigin="anonymous")
+    script(src="/javascripts/jspdf.min.js")
+    script(src="/javascripts/pdfmanager.js")
+    script(src="/javascripts/jquery.bracket.min.js")
+    footer.footer
+      .container-fluid
+        .row
+          .col-md-4.col-sm-12
+            p Autor: Alberto Hernandez
+          .col-sm-4.text-center
+            button#html2pdf.btn.btn-primary Política de privacidad
+          .col-sm-4.text-right
+            p#copyright

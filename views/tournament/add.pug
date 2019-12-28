@@ -1,0 +1,28 @@
+extends ../layouts/layout
+
+block content
+
+    .row
+        .col-lg-6.col-sm-12.mx-auto
+            div#errors.hidden
+    .row
+        .col-lg-8.col-md-10.co-sm-12.mx-auto.border.border-primary.rounded.p-3
+            form#tournament-form(method='POST' action='')
+                div.form-group
+                    input#organizer(type='hidden' name='organizer' value=organizer)
+                div.form-group
+                    label(for='name') Nombre del torneo:
+                    input#name.form-control(type='text' name='name')
+                div.form-group
+                    label(for='date') Fecha del torneo:
+                    input#date.form-control(type='date' name='date')
+                div.form-group
+                    label(for='player_cap') Aforo del torneo:
+                    input#player_cap.form-control(type='number' name='cap')
+                div.form-group
+                    label(for='type') Formato de torneo:
+                    select(name='type')#type.form-control
+                        each type in tournamentTypes
+                            option(value=type.type_id)= type.name
+                button.btn.btn-primary.float-right(type='submit') Crear Torneo
+    script(src='/javascripts/validation.js')

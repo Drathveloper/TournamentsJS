@@ -1,0 +1,44 @@
+extends ../layouts/layout
+
+block content
+    .row
+        .col-lg-12.col-sm-12.col-lg-12#title
+            h2.text-center
+    .row
+        .col-lg-8.col-sm-12.col-md-8#basic.border.border-secondary.p-3.rounded
+            h3 Información básica
+            .row
+                .col-md-6.col-sm-12
+                    p
+                    p
+                .col-md-6.col-sm-12
+                    p
+                    p
+            if isTheOrganizer
+                .row#organizer-zone
+                    if !hasStarted
+                        .col-md-12.col-lg-3.mb-3
+                            a.btn.btn-primary.text-white.w-100(href=tour_url + '/update') Modificar torneo
+                        .col-md-12.col-lg-3.mb-3
+                            a.btn.btn-primary.text-white.w-100(href=tour_url + '/delete') Cancelar torneo
+                        .col-md-12.col-lg-3.mb-3
+                            a.btn.btn-primary.text-white.w-100#start-button Iniciar torneo
+                    if hasStarted && !hasFinished
+                        .col-lg-3.col-md-12.mb-3
+                            a.btn.btn-primary.text-white.w-100#next-round Generar Ronda
+            if isPlayer
+                .row#player-zone
+                    if !isRegistered && !hasStarted
+                        .col-md-6
+                            a.btn.btn-primary.text-white.w-100#check-in Inscribirse
+                    if isRegistered && !hasStarted
+                        .col-md-6
+                            a.btn.btn-primary.text-white.w-100#check-out Cancelar inscripción
+        .col-lg-4.col-sm-12.col-md-4#players
+    .row
+        .col-lg-12.mx-auto.text-center.mt-5.mb-5#brackets
+
+    .row
+        .col-lg-6.col-sm-12.col-md-6#rounds
+        .col-lg-6.col-sm-12.col-md-6#standings
+    script(src='/javascripts/details_manager.js')

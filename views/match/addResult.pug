@@ -1,0 +1,28 @@
+extends ../layouts/layout
+
+block content
+    .row
+        .col-lg-10.col-md-12.mx-auto.text-center
+            h2 Mesa #{match.table_number}
+            table.table.table-striped.text-center
+                thead
+                    th Jugador 1
+                    th vs
+                    th Jugador 2
+                tbody
+                    tr
+                        td #{match.player1_id.username}
+                        td
+                        td #{match.player2_id.username}
+    .row
+        .col-lg-8.col-md-10.mx-auto
+            form(method='POST' action='')
+                .form-row
+                    input#organizer(type='hidden' name='organizer' value=organizer)
+                    .col-md-8.my-3
+                        label.mr-sm-2(for='winner') Ganador:
+                        select.custom-select#winner(name='winner')
+                            option(value=match.player1_id._id)= match.player1_id.username
+                            option(value=match.player2_id._id)= match.player2_id.username
+                    .col-md-4.my-5
+                        button.btn.btn-primary(type='submit') Añadir resultado

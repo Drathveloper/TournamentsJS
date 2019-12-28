@@ -1,0 +1,35 @@
+extends ../layouts/layout
+
+block content
+    .row.mb-3
+        .col-md-12
+            .table-responsive
+                table.table.table-striped
+                    thead
+                        tr.text-center
+                            th(scope='col') Usuario
+                            th(scope='col') E-mail
+                            th(scope='col') Nombre completo
+                            th(scope='col') Fecha de nacimiento
+                            th(scope='col') Rol de usuario
+                    each user in users
+                        tr.text-center
+                            td= user.username
+                            td= user.email
+                            td= user.first_name + ' ' + user.last_name
+                            td= moment(user.birth_date).format('DD-MM-YYYY')
+                            td= user.role.name
+    .row
+        .col-md-12.col-sm-12.col-lg-12
+            form(method='POST' action='')
+                .form-row.mx-auto
+                    .col-md-4.col-sm-12.col-lg-4.mb-3
+                        select(name='user').form-control
+                            each user in users
+                                option(value=user.username)= user.username
+                    .col-md-4.col-sm-12.col-lg-4.mb-3
+                        select(name='role').form-control
+                            each role in roles
+                                option(value=role.role_id)= role.name
+                    .col-md-4.col-sm-12.col-lg-4.mb-3
+                        button.btn.btn-primary.w-100(type="submit") Modificar usuario

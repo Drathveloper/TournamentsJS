@@ -1,0 +1,44 @@
+extends ../layouts/layout
+
+block content
+    .row
+        .col-lg-6.col-sm-12.mx-auto
+            div#errors.hidden
+    .row
+        .col-lg-8.col-md-10.co-sm-12.mx-auto.border.border-primary.rounded.p-3
+            h2.text-center= title
+            form#register-form(method='POST' action='')
+                .form-row
+                    .col-md-4.mb-3
+                        div.form-group
+                            label(for='username') Nombre de usuario
+                            input#username.form-control(type='text' name='username')
+                    .col-md-4.mb-3
+                        div.form-group
+                            label(for='first_name') Nombre
+                            input#first_name.form-control(type='text' name='first_name')
+                    .col-md-4.mb-3
+                        div.form-group
+                            label(for='last_name') Apellidos
+                            input#last_name.form-control(type='text' name='last_name')
+                .form-row
+                    .col-md-6.mb-3
+                        div.form-group
+                            label(for='birth_date') Fecha de nacimiento
+                            input#birth_date.form-control(type='date' name='birth_date')
+                    .col-md-6.mb-3
+                        div.form-group
+                            label(for='email') Correo electrónico
+                            input#email.form-control(type='email' name='email')
+                .form-row
+                    .col-md-6.mb-3
+                        div.form-group
+                            label(for='password') Contraseña
+                            input#password.form-control(type='password' name='password')
+                    .col-md-6.mb-3
+                        div.form-group
+                            label(for='rePassword') Reescribir contraseña
+                            input#rePassword.form-control(type='password' name='rePassword')
+                input(type='hidden' name='roles' value=rol)
+                button.btn.btn-primary.float-right(type='submit') Registrarse
+    script(src='/javascripts/validation_user.js')

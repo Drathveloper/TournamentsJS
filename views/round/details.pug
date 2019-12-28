@@ -1,0 +1,34 @@
+extends ../layouts/layout
+
+block content
+    .row
+        .col-lg-10.col-md-12.mx-auto.text-center
+            h2= round.tournament_id.name
+            h3 Ronda #{round.round_number}
+            table.table.table-striped.text-center
+                thead
+                    th Jugador 1
+                    th vs
+                    th Jugador 2
+                    th Detalles
+                tbody
+                    each match in matches
+                        tr
+                            if match.player1_id && match.player2_id
+                                td= match.player1_id.username
+                                td
+                                td= match.player2_id.username
+                                td
+                                    a.btn.btn-primary(href=match.url) Detalles
+                            else if match.player1_id
+                                td= match.player1_id.username
+                                td
+                                td BYE
+                                td
+                                    a.btn.btn-primary(href=match.url) Detalles
+                            else if match.player2_id
+                                td= match.player2_id.username
+                                td
+                                td BYE
+                                td
+                                    a.btn.btn-primary(href=match.url) Detalles

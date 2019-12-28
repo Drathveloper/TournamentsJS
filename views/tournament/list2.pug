@@ -1,0 +1,21 @@
+extends ../layouts/layout
+
+block content
+    .row
+        .col-sm-12.col-md-12.col-lg-12
+            h2.text-center= title
+    div#content
+        .row
+            each tournament in tournaments
+                .col-lg-4.col-md-4.col-sm-12
+                    .card.text-center.mb-3
+                        .card-header
+                            h5.card-title.text-center.m-0= tournament.name
+                        img.img-fluid.card-img-top(src='/images/set.png' alt="Single Elimination Tournament")
+                        .card-body.p-0
+                            ul.list-group.list-group-flush
+                                li.list-group-item Organizador: #{tournament.tournament_organizer.username}
+                                li.list-group-item Fecha: #{moment(tournament.tournament_date).format('DD-MM-YYYY')}
+                                li.list-group-item Formato: #{tournament.tournament_type.name}
+                                li.list-group-item Aforo: #{tournament.tournament_cap} jugadores
+                        a.btn.btn-primary.w-100(href=tournament.url) Detalles
